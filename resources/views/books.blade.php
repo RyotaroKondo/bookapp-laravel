@@ -23,6 +23,11 @@
 							<div class="col-sm-6">
 								<input type="text" name="name" id="book-name" class="form-control" value="{{ old('book') }}">
 							</div>
+							<label for="task-name" class="col-sm-3 control-label">著者名</label>
+
+							<div class="col-sm-6">
+								<input type="text" name="author" id="book-name" class="form-control" value="{{ old('book') }}">
+							</div>
 						</div>
 
 						<!-- Add Book Button -->
@@ -48,12 +53,14 @@
 						<table class="table table-striped task-table">
 							<thead>
 								<th>書籍タイトル</th>
+								<th>著者</th>
 								<th>&nbsp;</th>
 							</thead>
 							<tbody>
 								@foreach ($books as $book)
 									<tr>
 										<td class="table-text"><div>{{ $book->title }}</div></td>
+										<td class="table-text"><div>{{ $book->author }}</div></td>
 
 										<!-- Task Delete Button -->
 										<td>

@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::post('/book', function(Request $request){
     $validator = Validator::make($request->all(),[
         'name' => 'required|max:255',
+        'author' => 'required|max:255',
     ]);
     if ($validator->fails()) {
         return redirect('/')
@@ -33,6 +34,7 @@ Route::post('/book', function(Request $request){
     }
     $book = new Book;
     $book->title = $request->name;
+    $book->author = $request->author;
     $book->save();
 
     return redirect('/');
